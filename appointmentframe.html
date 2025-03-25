@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body
+        {
+            padding: 2rem;
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="time"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #6a64f1;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4f49c1;
+        }
+
+        .c1
+        {
+            color: black;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <h1 align="center">We Help People Get Doctor Appointment Online!</h1>
+
+        <p></p>
+
+        <div class="container">
+            <h1>Appointment Registration</h1>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" placeholder="Enter your age" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select name="gender" id="gender" aria-placeholder="Select Gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Appointment Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Appointment Time</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="department name">Department Name</label>
+                    <select name="department name" id="department name" aria-placeholder="Select Department Name">
+                        <option value="selectDep">--Select Department--</option>
+                        <option value="pediatrician">Pediatrician</option>
+                        <option value="cardiologist">Cardiologist</option>
+                        <option value="dentist">Dentist</option>
+                        <option value="ent specialist">ENT Specialist</option>
+                        <option value="neurologists">Neurologists</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="doctor name">Doctor Name</label>
+                    <select name="doctor name" id="doctor name" aria-placeholder="Select Doctor Name">
+                        <option value="selectDoc">--Select Doctor--</option>
+                        <option value="vikram">Vikram</option>
+                        <option value="srivatsa">Srivatsa</option>
+                        <option value="karthikeya">Karthikeya</option>
+                        <option value="nithilan">Nithilan</option>
+                        <option value="sreeja">Sreeja</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" placeholder="Enter your address" required>
+                </div>
+                <input type="submit" value="Book Appointment" style="margin: auto; background-color: purple; color: white; border-radius: 5px;">
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <p id="id1" class="c1" align="center"></p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const appointmentForm = document.getElementById('appointmentForm');
+
+            appointmentForm.addEventListener('submit', function(event) {
+                event.preventDefault(); 
+                document.getElementById('id1').textContent = 'Appointment successfully booked!';
+                appointmentForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>

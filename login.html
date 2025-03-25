@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+        }
+        #id1
+        {
+            width: 100vw;
+            height: 100vh;
+            background-image: url(loginbgimg6.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            /* backdrop-filter: blur(00.25rem); */
+        }
+
+        #id2
+        {
+            margin: auto;
+            width: 80vw;
+            height: 60vh;
+            border: 2px solid white;
+            border-radius: 2rem;
+            display: flex;
+            flex-direction: row;
+            backdrop-filter: inherit;
+        }
+
+        .c1
+        {
+            display: inline-block;
+            width: 50%;
+            height: 100%;
+        }
+
+        #id3
+        {
+            background-image: url(loginbgimg4.avif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-top-left-radius: 2rem;
+            border-bottom-left-radius: 2rem;
+            /* overflow: hidden; */
+        }
+
+        #id4
+        {
+            position: absolute;
+            top: 13vh;
+            left: 65vw;
+        }
+
+        button:hover
+        {
+            background: grey;
+            text-decoration: underline;
+        }
+
+        .c2
+        {
+            width: 10vw;
+            height: 7vh;
+            text-align: center;
+            justify-content: center;
+            border-top-left-radius: 0.75rem;
+            border-top-right-radius: 0.75rem;
+            font-weight: 300;
+            font-size: larger;
+            color: blue;
+        }
+
+        .c3
+        {
+            display: inline-block;
+            padding: 2rem;
+        }
+
+        input[type="text"]
+        {
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+        }
+
+        input[type="password"]
+        {
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+        }
+
+        input[type="submit"]:hover
+        {
+            background-color: azure;
+            color: black;
+            border-radius: 0.5rem;
+        }
+
+        .c5
+        {
+            padding-left: 30%;
+            padding-right: 30%;
+            line-height: 1.5rem;
+        }
+
+        .c6
+        {
+            width: 80%;
+            height: 4vh;
+            background-color: darkblue;
+            color: azure;
+            border-radius: 0.5rem;
+        }
+
+        .c7
+        {
+            color: aqua;
+            font-size: large;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="id1">
+
+        <div id="id4">
+            <button class="c2">Login</button>
+        </div>
+
+        <div id="id2">
+            <div class="c1" id="id3">  
+            </div>
+
+            <div class="c3 c1">
+                <h1 align="center" style="color: aliceblue;">Login To Your Account</h1>
+                <form class="c5">
+                    <label for="username" class="c7">Enter Username</label><br>
+                    <input type="text" id="username" name="username" class="c4" placeholder="Username"><br><br>
+                    <label for="password" class="c7">Enter Password</label><br>
+                    <input type="password" id="password" name="password" class="c4" placeholder="Password"><br><br>
+                    <input type="submit" value="Login" class="c6">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthWeb - Welcome</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            color: #333;
+        }
+
+        h1 {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 2rem;
+            color: #0047ab;
+        }
+
+        #id1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        .content-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card {
+            flex: 1;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .message {
+            color: red;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .btn {
+            background-color: #1565c0;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0047ab;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="id1">
+        <h1>Welcome to HealthWeb - Your Hospital Management Solution</h1>
+        <div class="content-container">
+            <div class="card" id="card1" tabindex="0" onkeydown="showMessage('message1')" onkeyup="hideMessage('message1')">
+                <img src="patienthome.png" alt="Patient Home">
+                <h2 class="text-center">Manage Patients</h2>
+                <p class="text-center">Efficiently manage patient information, appointments, and medical records.</p>
+                <button class="btn show-more" onclick="showMore('moreText1')">Show More <i class="fas fa-chevron-down"></i></button>
+                <button class="btn show-less" onclick="showLess('moreText1')">Show Less <i class="fas fa-chevron-up"></i></button>
+                <div id="moreText1" class="hide">
+                    <p class="text-center">HealthWeb is designed to streamline and enhance the efficiency of healthcare facilities by
+                        providing comprehensive solutions for managing various aspects of hospital operations. From patient management
+                        to administrative tasks, our platform offers a wide range of features to meet the diverse needs of healthcare
+                        providers. </p>
+                </div>
+                <div id="message1" class="message">Key Pressed!</div>
+            </div>
+
+            <div class="card" id="card2" tabindex="0" onkeydown="showMessage('message2')" onkeyup="hideMessage('message2')">
+                <img src="aboutuspic2.jpg" alt="About Us">
+                <h2 class="text-center">About Us</h2>
+                <p class="text-center">Learn about our team and our commitment to transforming healthcare management.</p>
+                <button class="btn show-more" onclick="showMore('moreText2')">Show More <i class="fas fa-chevron-down"></i></button>
+                <button class="btn show-less" onclick="showLess('moreText2')">Show Less <i class="fas fa-chevron-up"></i></button>
+                <div id="moreText2" class="hide">
+                    <p class="text-center">Our team comprises experienced professionals from both healthcare and technology sectors, working together to develop cutting-edge solutions that streamline hospital operations, improve patient care, and empower healthcare organizations to thrive in an ever-evolving industry.</p>
+                </div>
+                <div id="message2" class="message">Key Pressed!</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showMore(id) {
+            document.getElementById(id).classList.remove('hide');
+            document.querySelector(`.${id}`).classList.add('hide');
+            document.querySelector(`.show-less-btn.${id}`).classList.remove('hide');
+        }
+
+        function showLess(id) {
+            document.getElementById(id).classList.add('hide');
+            document.querySelector(`.${id}`).classList.remove('hide');
+            document.querySelector(`.show-less-btn.${id}`).classList.add('hide');
+        }
+
+        function showMessage(id) {
+            document.getElementById(id).style.display = 'block'; // Show the message
+        }
+
+        function hideMessage(id) {
+            document.getElementById(id).style.display = 'none'; // Hide the message
+        }
+    </script>
+</body>
+
+</html>

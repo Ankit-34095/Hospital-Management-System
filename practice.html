@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+</head>
+<body ng-app="myNgApp">
+    <!-- <div ng-controller="myController">
+        Message: <br>
+        {{message}} <br>
+        <span ng-bind="message"></span> <br>
+        <input type="text" ng-model="message">
+    </div>
+
+    <script>
+        var ngApp = angular.module('myNgApp', []);
+        ngApp.controller("myController", function($scope){
+            $scope.message;
+        })
+    </script> -->
+
+    <p id="clock"></p>
+
+    <script type="text/javascript"> 
+        var time =setInterval(timer,1000);
+        function timer() {
+        var d=new Date(); 
+        document.getElementById("clock").innerHTML=d.toLocaleTimeString(); 
+        } 
+    </script>
+</body>
+</html>

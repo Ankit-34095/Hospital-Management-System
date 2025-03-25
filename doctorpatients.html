@@ -1,0 +1,271 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css
+">
+    <style>
+        h1 {
+            color: rgb(247, 7, 7)
+        }
+
+        b {
+            color: crimson;
+        }
+
+        body {
+            padding: 20px;
+            background-image: url('222.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .card {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .patient-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .patient-details-item {
+            width: 30%;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .patient-photo {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .patient-info {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="display-4"><B>PATIENT-DETAILS</B></h1>
+        <div class="card">
+            <div class="card-body">
+                <div class="patient-details">
+                    <div class="patient-details-item">
+                        <div class="patient-photo" style="background-image: url('profile.jpg');"></div>
+                        <div class="patient-info">
+                            <h2>Patient 1</h2>
+                            <p>Age: 55</p>
+                            <p>Gender: Male</p>
+                            <b>Heart-related issue: High blood pressure</b>
+                        </div>
+                    </div>
+                    <div class="patient-details-item">
+                        <div class="patient-photo" style="background-image: url('profile.jpg');"></div>
+                        <div class="patient-info">
+                            <h2>Patient 2</h2>
+                            <p>Age: 60</p>
+                            <p>Gender: Female</p>
+                            <b>FEMUS SURGERY</b>
+                        </div>
+                    </div>
+                    <div class="patient-details-item">
+                        <div class="patient-photo" style="background-image: url('profile.jpg');"></div>
+                        <div class="patient-info">
+                            <h2>Patient 3</h2>
+                            <p>Age: 45</p>
+                            <p>Gender: Male</p>
+                            <b>BRAIN INJURY</b>
+                        </div>
+                    </div>
+                    <div class="patient-details-item">
+                        <div class="patient-photo" style="background-image: url('profile.jpg');"></div>
+                        <div class="patient-info">
+                            <h2>Patient 4</h2>
+                            <p>Age: 70</p>
+                            <p>Gender: Female</p>
+                            <b>BLOOD CANCER</b>
+                        </div>
+                    </div>
+                    <div class="patient-details-item">
+                        <div class="patient-photo" style="background-image: url('profile.jpg');"></div>
+                        <div class="patient-info">
+                            <h2>Patient 5</h2>
+                            <p>Age: 58</p>
+                            <p>Gender: Male</p>
+                            <b>PLASTIC SURGERY</b>
+                        </div>
+                    </div>
+                    <div class="patient-details-item">
+                        <div class="patient-photo" style="background-image: url('profile.jpg');"></div>
+                        <div class="patient-info">
+                            <h2>Patient 6</h2>
+                            <p>Age: 62</p>
+                            <p>Gender: Female</p>
+                            <b>REPLACEMENT OF RIB-CAGE</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body >
+</html > -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        h1 {
+            color: rgb(247, 7, 7)
+        }
+
+        b {
+            color: crimson;
+        }
+
+        body {
+            padding: 20px;
+            background-color: #f0f5ff; /* Light blue background color */
+        }
+
+        .card {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .patient-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .patient-details-item {
+            width: 100%;
+            max-width: 400px; /* Limiting maximum width */
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .patient-photo {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .patient-info {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .patient-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="display-4"><b>PATIENT DETAILS</b></h1>
+        <div class="card">
+            <div class="card-body">
+                <div class="patient-details">
+                    <div class="patient-details-item">
+                        <div class="patient-photo" style="background-color: #e0e0e0;"></div>
+                        <div class="patient-info text-center">
+                            <i class="fas fa-user patient-icon"></i>
+                            <h2>Patient 1</h2>
+                            <p><b>Age:</b> 55</p>
+                            <p><b>Gender:</b> Male</p>
+                            <p><b>Issue:</b> High blood pressure</p>
+                        </div>
+                    </div>
+                    <div class="patient-details-item">
+                        <div class="patient-photo" style="background-image: url('profile.jpg');"></div>
+                        <div class="patient-info">
+                            <h2>Patient 2</h2>
+                            <p>Age: 60</p>
+                            <p>Gender: Female</p>
+                            <b>FEMUS SURGERY</b>
+                        </div>
+                    </div>
+                    <div class="patient-details-item">
+                        <div class="patient-photo" style="background-image: url('profile.jpg');"></div>
+                        <div class="patient-info">
+                            <h2>Patient 3</h2>
+                            <p>Age: 45</p>
+                            <p>Gender: Male</p>
+                            <b>BRAIN INJURY</b>
+                        </div>
+                    </div>
+                    <div class="patient-details-item">
+                        <div class="patient-photo" style="background-image: url('profile.jpg');"></div>
+                        <div class="patient-info">
+                            <h2>Patient 4</h2>
+                            <p>Age: 70</p>
+                            <p>Gender: Female</p>
+                            <b>BLOOD CANCER</b>
+                        </div>
+                    </div>
+                    <div class="patient-details-item">
+                        <div class="patient-photo" style="background-image: url('profile.jpg');"></div>
+                        <div class="patient-info">
+                            <h2>Patient 5</h2>
+                            <p>Age: 58</p>
+                            <p>Gender: Male</p>
+                            <b>PLASTIC SURGERY</b>
+                        </div>
+                    </div>
+                    <div class="patient-details-item">
+                        <div class="patient-photo" style="background-image: url('profile.jpg');"></div>
+                        <div class="patient-info">
+                            <h2>Patient 6</h2>
+                            <p>Age: 62</p>
+                            <p>Gender: Female</p>
+                            <b>REPLACEMENT OF RIB-CAGE</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

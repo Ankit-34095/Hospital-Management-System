@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body 
+        {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+        }
+
+        #id1 
+        {
+            display: inline-block;
+            width: 60%;
+            height: 78vh;
+            padding-left: 3rem;
+            padding-bottom: 1rem;
+        }
+
+        form 
+        {
+            display: flex;
+            flex-direction: column;
+            background-color: #f5f0ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        label 
+        {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], textarea 
+        {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        textarea 
+        {
+            height: 90px;
+        }
+
+        input[type="submit"] 
+        {
+            background-color: #6a0dad;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #id2
+        {
+            float: right;
+            width: 30%;
+            padding-right: 5%;
+            height: 78vh;
+        }
+
+        #id3
+        {
+            width: 30vw;
+            height: 50vh;
+            position: relative;
+            left: 5%;
+            top: 30%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="id1">
+        <h2 align="center">Contact Us</h2>
+
+        <p>We value your feedback and are here to assist you in any way we can. Whether you have questions about our
+            services, need technical support, or simply want to provide feedback, our dedicated team is ready to help.
+        </p>
+
+        <form>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName">
+
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="message">Message</label>
+            <textarea id="message"></textarea>
+
+            <input type="submit" value="Send">
+        </form>
+
+    </div>
+
+    <div id="id2">
+        <img src="contactuspic.jpg" alt="Error Loading" id="id3">
+    </div>
+</body>
+
+</html>

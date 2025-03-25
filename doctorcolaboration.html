@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Team Collaboration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            /* background-image: url("44444.jpg");
+            background-repeat: no-repeat;
+            background-size: cover; */
+            background-color: lightblue;
+        }
+
+        h1, h2, m1 {
+            color: purple;
+        }
+
+        form {
+            max-width: 400px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .team-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Healthcare Team Collaboration</h1>
+
+    <h2>Create New Team</h2>
+    <form id="teamForm">
+        <label for="teamName"><m1>Team Name:</m1></label><br>
+        <input type="text" id="teamName" name="teamName" required><br>
+
+        <label for="teamMembers"><m1>Team Members</m1></label><br>
+        <textarea id="teamMembers" name="teamMembers" rows="4" required></textarea><br>
+
+        <button type="submit"><m1>Create Team</m1></button>
+    </form>
+
+    <h2>Existing Teams</h2>
+    <select id="existingTeams">
+        <option value="Emergency Response Team">Emergency Response Team</option>
+        <option value="Surgical Team">Surgical Team</option>
+        <option value="Maternity Care Team">Maternity Care Team</option>
+        <option value="Pediatric Team">Pediatric Team</option>
+        <option value="Intensive Care Unit (ICU) Team">Intensive Care Unit (ICU) Team</option>
+        <option value="Diagnostic Imaging Team">Diagnostic Imaging Team</option>
+        <option value="Laboratory Team">Laboratory Team</option>
+        <option value="Pharmacy Team">Pharmacy Team</option>
+        <option value="Physical Therapy/Occupational Therapy Team">Physical Therapy/Occupational Therapy Team</option>
+        <option value="Nutrition and Dietetics Team">Nutrition and Dietetics Team</option>
+    </select>
+
+    <h2>Group Messaging</h2>
+    <form id="messageForm">
+        <label for="message"><m1>Message:</m1></label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br>
+
+        <button type="submit">Send Message</button>
+    </form>
+
+    <h2><m1>File Sharing</m1></h2>
+    <form id="fileForm" enctype="multipart/form-data">
+        <input type="file" name="file" id="file" required><br><br>
+
+        <button type="submit">Upload File</button>
+    </form>
+
+    <h2><m1>Task Assignment</m1></h2>
+    <form id="taskForm">
+        <label for="taskDescription"><m1>Task Description:</m1></label><br>
+        <textarea id="taskDescription" name="taskDescription" rows="4" required></textarea><br>
+
+        <label for="assignTo"><m1>Assign To:</m1></label><br>
+        <input type="text" id="assignTo" name="assignTo" required><br>
+
+        <button type="submit">Assign Task</button>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const teamForm = document.getElementById('teamForm');
+            const messageForm = document.getElementById('messageForm');
+            const fileForm = document.getElementById('fileForm');
+            const taskForm = document.getElementById('taskForm');
+            const existingTeamsSelect = document.getElementById('existingTeams');
+
+            teamForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const teamName = document.getElementById('teamName').value;
+                const teamMembers = document.getElementById('teamMembers').value;
+
+                const newTeamOption = document.createElement('option');
+                newTeamOption.textContent = teamName;
+                existingTeamsSelect.appendChild(newTeamOption);
+                
+                const newTeamItem = document.createElement('div');
+                newTeamItem.classList.add('team-item');
+                newTeamItem.innerHTML = `<m1>Team Name:</m1> ${teamName}<br><m1>Team Members:</m1><br>${teamMembers}`;
+                
+                document.body.appendChild(newTeamItem);
+            });
+
+            messageForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Message sent!');
+            });
+
+            fileForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('File uploaded!');
+            });
+
+            taskForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Task assigned!');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Scheduling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-image:url("33.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            color:darkblue;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="time"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .existing-appointments {
+            margin-top: 20px;
+        }
+
+        .appointment-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Appointment Scheduling</h1>
+
+    <h2>Existing Appointments</h2>
+    <div class="existing-appointments" id="existingAppointments">
+        <div class="appointment-item">
+            <strong>John Doe</strong> - Date: 2024-03-10, Time: 10:00
+        </div>
+        <div class="appointment-item">
+            <strong>Jane Smith</strong> - Date: 2024-03-12, Time: 14:30
+        </div>
+    </div>
+
+    <h2>Schedule New Appointment</h2>
+    <form id="appointmentForm">
+        <label for="patientName">Patient Name:</label><br>
+        <input type="text" id="patientName" name="patientName" required><br><br>
+
+        <label for="appointmentDate">Appointment Date:</label><br>
+        <input type="date" id="appointmentDate" name="appointmentDate" required><br><br>
+
+        <label for="appointmentTime">Appointment Time:</label><br>
+        <input type="time" id="appointmentTime" name="appointmentTime" required><br><br>
+
+        <button type="submit">Schedule Appointment</button>
+    </form>
+
+    <h2>Meetings with Other Doctors</h2>
+    <div class="existing-appointments">
+        <div class="appointment-item">
+            <strong>Dr. Smith</strong> - Date: 2024-03-11, Time: 13:00
+        </div>
+        <div class="appointment-item">
+            <strong>Dr. Johnson</strong> - Date: 2024-03-14, Time: 11:30
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const existingAppointments = document.getElementById('existingAppointments');
+            const appointmentForm = document.getElementById('appointmentForm');
+
+            appointmentForm.addEventListener('submit', function(event) {
+                event.preventDefault(); 
+
+                const patientName = document.getElementById('patientName').value;
+                const appointmentDate = document.getElementById('appointmentDate').value;
+                const appointmentTime = document.getElementById('appointmentTime').value;
+
+                const newAppointmentItem = document.createElement('div');
+                newAppointmentItem.classList.add('appointment-item');
+                newAppointmentItem.innerHTML = <strong>${patientName}</strong> - Date: ${appointmentDate}, Time: ${appointmentTime};
+
+                existingAppointments.appendChild(newAppointmentItem);
+
+                appointmentForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>

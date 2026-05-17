@@ -151,13 +151,4 @@ http://localhost:3000
 
 ---
 
--->Future Improvements
-
-- Email notifications for appointments
-- Online payment integration
-- Doctor availability management
-- Appointment cancellation and rescheduling
-- Report export functionality
-
-
 

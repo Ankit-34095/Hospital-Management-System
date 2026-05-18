@@ -22,11 +22,11 @@ export default function Appointments() {
   async function load() {
     try {
       let apptUrl = '/api/appointments';
-      if (role === 'PATIENT' && patientId) apptUrl = `/appointments/by-patient/${patientId}`;
-      else if (role === 'DOCTOR' && doctorId) apptUrl = `/appointments/by-doctor/${doctorId}`;
+      if (role === 'PATIENT' && patientId) apptUrl = `/api/appointments/by-patient/${patientId}`;
+      else if (role === 'DOCTOR' && doctorId) apptUrl = `/api/appointments/by-doctor/${doctorId}`;
       const [apptRes, docRes] = await Promise.all([
         api.get(apptUrl),
-        api.get('/doctors')
+        api.get('/api/doctors')
       ]);
       setAppointments(Array.isArray(apptRes.data) ? apptRes.data : []);
       setDoctors(Array.isArray(docRes.data) ? docRes.data : []);
@@ -37,13 +37,29 @@ export default function Appointments() {
   useEffect(() => { load() }, [role, patientId, doctorId]);
 
   function isPastDateTime(selectedDate, selectedTime) {
-    const currentDate = todayStr();
-    if (!selectedDate) return false;
-    if (selectedDate < currentDate) return true;
-    if (selectedDate === currentDate && selectedTime && selectedTime > nowTime()) return true;
-    return false;
+
+  const currentDate = todayStr();
+
+  if (!selectedDate) return false;
+
+  // Past date is invalid
+  if (selectedDate < currentDate) {
+    return true;
   }
 
+  // Same day: past/current time is invalid
+  if (
+    selectedDate === currentDate &&
+    selectedTime &&
+    selectedTime <= nowTime()
+  ) {
+    return true;
+  }
+
+  // Future date/time is valid
+  return false;
+}
+  
   async function handleBook(e) {
     e.preventDefault();
     setError('');
@@ -58,7 +74,7 @@ export default function Appointments() {
         date: form.date,
         time: form.time
       };
-      const res = await api.post('/appointments', payload);
+      const res = await api.post('/api/appointments', payload);
       if (!res.data) throw new Error('No data returned');
       setForm({
         doctorId: role === 'DOCTOR' && doctorId ? doctorId : '',
@@ -74,7 +90,7 @@ export default function Appointments() {
 
   async function handleCancel(id) {
     try {
-      await api.delete(`/appointments/${id}`);
+      await api.delete(`/api/appointments/${id}`);
       load();
     } catch (e) {
       setError('Failed to cancel appointment.');

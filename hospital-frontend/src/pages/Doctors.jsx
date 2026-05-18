@@ -10,37 +10,58 @@ export default function Doctors(){
   const [loginError, setLoginError] = useState('');
   const [loginSuccess, setLoginSuccess] = useState('');
 
-  async function load(){
-    try {
-      const res = await api.get('/doctors');
-      setDoctors(Array.isArray(res.data) ? res.data : []);
-    } catch(e) {
-      console.error('Load doctors error:', e.response?.status, e.response?.data);
-    }
+ async function load(){
+  try {
+    const res = await api.get('/api/doctors');
+    setDoctors(Array.isArray(res.data) ? res.data : []);
+  } catch(e) {
+    console.error('Load doctors error:', e.response?.status, e.response?.data);
   }
+}
   useEffect(()=>{load()},[]);
 
   async function handleAdd(e){
-    e.preventDefault();
-    setError('');
-    try {
-      const res = await api.post('/doctors', form);
-      if (!res.data) throw new Error('No data returned');
-      setForm({name:'',specialization:'',contact:'',email:''});
-      setDoctors(prev => {
-        if (prev.find(d => d.id === res.data.id)) return prev;
-        return [...prev, res.data];
-      });
-      load();
-    } catch(e) {
-      const status = e.response?.status ? `(HTTP ${e.response?.status})` : '';
-      const msg = typeof e.response?.data === 'string' ? e.response.data
-        : e.response?.data?.message || `${status} Failed to add doctor.`;
-      setError(msg);
-      console.error('Add doctor error:', e.response?.status, e.response?.data);
-    }
-  }
+  e.preventDefault();
+  setError('');
+  try {
+    const res = await api.post('/api/doctors', form);
 
+    if (!res.data) throw new Error('No data returned');
+
+    setForm({
+      name:'',
+      specialization:'',
+      contact:'',
+      email:''
+    });
+
+    setDoctors(prev => {
+      if (prev.find(d => d.id === res.data.id)) return prev;
+      return [...prev, res.data];
+    });
+
+    load();
+
+  } catch(e) {
+
+    const status = e.response?.status
+      ? `(HTTP ${e.response?.status})`
+      : '';
+
+    const msg =
+      typeof e.response?.data === 'string'
+        ? e.response.data
+        : e.response?.data?.message || `${status} Failed to add doctor.`;
+
+    setError(msg);
+
+    console.error(
+      'Add doctor error:',
+      e.response?.status,
+      e.response?.data
+    );
+  }
+}
   async function handleCreateLogin(e){
     e.preventDefault();
     setLoginError('');
@@ -55,15 +76,23 @@ export default function Doctors(){
   }
 
   async function handleDelete(id){
-    if (!id) return;
-    try {
-      await api.delete(`/doctors/${id}`);
-      setDeleteId('');
-      load();
-    } catch(e) {
-      setError(e.response?.data || 'Failed to delete doctor.');
-    }
+  if (!id) return;
+
+  try {
+
+    await api.delete(`/api/doctors/${id}`);
+
+    setDeleteId('');
+
+    load();
+
+  } catch(e) {
+
+    setError(
+      e.response?.data || 'Failed to delete doctor.'
+    );
   }
+}
 
   return (
     <div>

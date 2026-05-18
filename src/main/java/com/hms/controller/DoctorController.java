@@ -11,7 +11,7 @@ import com.hms.model.Doctor;
 import com.hms.service.DoctorService;
 
 @RestController
-@RequestMapping("/api/doctors")
+@RequestMapping("/doctors","/api/doctors")
 public class DoctorController {
 
     private final DoctorService doctorService;

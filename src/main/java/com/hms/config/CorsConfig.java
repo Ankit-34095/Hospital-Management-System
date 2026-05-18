@@ -16,9 +16,10 @@ public class CorsConfig {
 
         config.setAllowCredentials(true);
 
-        config.addAllowedOrigin("https://hospital-management-system-pi-mauve.vercel.app");
+        config.addAllowedOriginPattern("*");
 
         config.addAllowedHeader("*");
+
         config.addAllowedMethod("*");
 
         UrlBasedCorsConfigurationSource source =

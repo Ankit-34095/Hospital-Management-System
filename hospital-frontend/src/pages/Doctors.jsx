@@ -46,7 +46,7 @@ export default function Doctors(){
     setLoginError('');
     setLoginSuccess('');
     try {
-      await api.post('/auth/register-doctor', loginForm);
+      await api.post('/api/auth/register-doctor', loginForm);
       setLoginSuccess('Login credentials created for doctor #' + loginForm.doctorId);
       setLoginForm({ doctorId: '', username: '', password: '' });
     } catch(e) {

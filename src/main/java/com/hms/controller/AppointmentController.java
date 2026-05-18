@@ -11,7 +11,7 @@ import com.hms.model.Appointment;
 import com.hms.service.AppointmentService;
 
 @RestController
-@RequestMapping("/appointments","/api/appointments")
+@RequestMapping("/api/appointments")
 public class AppointmentController {
 
     private final AppointmentService appointmentService;

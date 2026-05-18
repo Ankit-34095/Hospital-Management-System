@@ -8,7 +8,7 @@ export default function Patients(){
 
   async function load(){
     try {
-      const res = await api.get('/patients');
+      const res = await api.get('/api/patients');
       setPatients(Array.isArray(res.data) ? res.data : []);
     } catch(e) {
       console.error('Load patients error:', e.response?.status, e.response?.data);
@@ -21,7 +21,7 @@ export default function Patients(){
     setError('');
     try {
       const payload = {...form, age: form.age ? Number(form.age) : null};
-      const res = await api.post('/patients', payload);
+      const res = await api.post('/api/patients', payload);
       if (!res.data) throw new Error('No data returned');
       setForm({name:'',age:'',gender:'',contact:'',address:''});
       setPatients(prev => {
@@ -40,7 +40,7 @@ export default function Patients(){
 
   async function handleDelete(id){
     try {
-      await api.delete(`/patients/${id}`);
+      await api.delete(`/api/patients/${id}`);
       load();
     } catch(e) {
       setError(e.response?.data || 'Failed to delete patient.');

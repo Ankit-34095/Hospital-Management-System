@@ -9,7 +9,7 @@ export default function Billing(){
 
   async function load(){
     try {
-      const url = role === 'PATIENT' && patientId ? `/billing/by-patient/${patientId}` : '/billing';
+      const url = role === 'PATIENT' && patientId ? `/api/billing/by-patient/${patientId}` : '/api/billing';
       const res = await api.get(url);
       setBills(Array.isArray(res.data) ? res.data : []);
     } catch(e) {

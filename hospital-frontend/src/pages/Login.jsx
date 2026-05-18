@@ -26,7 +26,7 @@ export default function Login(){
       localStorage.removeItem('doctorId');
       if (role === 'PATIENT') {
         try {
-          const pRes = await api.get(`/patients/by-name/${username}`);
+          const pRes = await api.get(`/api/patients/by-name/${username}`);
           if (pRes.data && pRes.data.id) localStorage.setItem('patientId', pRes.data.id);
         } catch (e) {
           console.error('Could not fetch patient ID:', e);
@@ -34,7 +34,7 @@ export default function Login(){
       }
       if (role === 'DOCTOR') {
         try {
-          const dRes = await api.get(`/doctors/by-name/${username}`);
+          const dRes = await api.get(`/api/doctors/by-name/${username}`);
           if (dRes.data && dRes.data.id) localStorage.setItem('doctorId', dRes.data.id);
         } catch (e) {
           console.error('Could not fetch doctor ID:', e);

@@ -21,7 +21,7 @@ export default function Appointments() {
 
   async function load() {
     try {
-      let apptUrl = '/appointments';
+      let apptUrl = '/api/appointments';
       if (role === 'PATIENT' && patientId) apptUrl = `/appointments/by-patient/${patientId}`;
       else if (role === 'DOCTOR' && doctorId) apptUrl = `/appointments/by-doctor/${doctorId}`;
       const [apptRes, docRes] = await Promise.all([
@@ -40,7 +40,7 @@ export default function Appointments() {
     const currentDate = todayStr();
     if (!selectedDate) return false;
     if (selectedDate < currentDate) return true;
-    if (selectedDate === currentDate && selectedTime && selectedTime < nowTime()) return true;
+    if (selectedDate === currentDate && selectedTime && selectedTime > nowTime()) return true;
     return false;
   }
 

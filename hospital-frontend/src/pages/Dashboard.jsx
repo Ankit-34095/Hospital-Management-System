@@ -19,16 +19,16 @@ export default function Dashboard() {
     async function loadStats() {
       try {
         const calls = [
-          api.get('/patients').catch(() => ({data: []})),
-          api.get('/doctors').catch(() => ({data: []})),
+          api.get('/api/patients').catch(() => ({data: []})),
+          api.get('/api/doctors').catch(() => ({data: []})),
         ];
 
         if (role === 'PATIENT' && patientId) {
-          calls.push(api.get(`/appointments/by-patient/${patientId}`).catch(() => ({data: []})));
+          calls.push(api.get(`/api/appointments/by-patient/${patientId}`).catch(() => ({data: []})));
         } else if (role === 'DOCTOR' && doctorId) {
-          calls.push(api.get(`/appointments/by-doctor/${doctorId}`).catch(() => ({data: []})));
+          calls.push(api.get(`/api/appointments/by-doctor/${doctorId}`).catch(() => ({data: []})));
         } else {
-          calls.push(api.get('/appointments').catch(() => ({data: []})));
+          calls.push(api.get('/api/appointments').catch(() => ({data: []})));
         }
 
         const [patRes, docRes, apptRes] = await Promise.all(calls);

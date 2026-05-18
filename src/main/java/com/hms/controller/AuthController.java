@@ -24,7 +24,7 @@ import com.hms.repository.DoctorRepository;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("auth","/api/auth")
+@RequestMapping("/api/auth")
 public class AuthController {
 
     private final UserRepository userRepository;

@@ -11,7 +11,7 @@ import com.hms.model.Billing;
 import com.hms.service.BillingService;
 
 @RestController
-@RequestMapping("/billing","/api/billing")
+@RequestMapping("/api/billing")
 public class BillingController {
 
     private final BillingService billingService;

@@ -21,7 +21,7 @@ export default function Billing(){
 
   async function handlePay(id){
     try {
-      await api.post(`/billing/simulate/${id}`);
+      await api.post(`/api/billing/simulate/${id}`);
       load();
     } catch(e) {
       setError('Payment simulation failed.');

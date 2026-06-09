@@ -10,6 +10,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "appointment", uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"patient_id", "date", "time"})
+})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,5 +29,5 @@ public class Appointment {
 
     private LocalDate date;
     private LocalTime time;
-    private String status; // Scheduled, Completed, Cancelled
+    private String status;
 }

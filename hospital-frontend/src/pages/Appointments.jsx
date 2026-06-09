@@ -19,6 +19,10 @@ export default function Appointments() {
     return `${String(n.getHours()).padStart(2, '0')}:${String(n.getMinutes()).padStart(2, '0')}`;
   }
 
+  function isSunday(dateStr) {
+    return new Date(dateStr + 'T12:00:00').getDay() === 0;
+  }
+
   async function load() {
     try {
       let apptUrl = '/api/appointments';
@@ -37,34 +41,35 @@ export default function Appointments() {
   useEffect(() => { load() }, [role, patientId, doctorId]);
 
   function isPastDateTime(selectedDate, selectedTime) {
-
-  const currentDate = todayStr();
-
-  if (!selectedDate) return false;
-
-  // Past date is invalid
-  if (selectedDate < currentDate) {
-    return true;
+    const currentDate = todayStr();
+    if (!selectedDate) return false;
+    if (selectedDate < currentDate) return true;
+    if (selectedDate === currentDate && selectedTime && selectedTime <= nowTime()) return true;
+    return false;
   }
 
-  // Same day: past/current time is invalid
-  if (
-    selectedDate === currentDate &&
-    selectedTime &&
-    selectedTime <= nowTime()
-  ) {
-    return true;
+  function isSunday(dateStr) {
+    return new Date(dateStr + 'T12:00:00').getDay() === 0;
   }
 
-  // Future date/time is valid
-  return false;
-}
-  
+  function isTimeInRange(t) {
+    if (!t) return false;
+    return t >= '10:00' && t <= '16:30';
+  }
+
   async function handleBook(e) {
     e.preventDefault();
     setError('');
     if (isPastDateTime(form.date, form.time)) {
       setError('Cannot book an appointment in the past.');
+      return;
+    }
+    if (isSunday(form.date)) {
+      setError('Appointments can only be booked from Monday to Saturday.');
+      return;
+    }
+    if (!isTimeInRange(form.time)) {
+      setError('Appointments can only be booked between 10:00 AM and 5:00 PM (last slot starts at 4:30 PM).');
       return;
     }
     try {
@@ -84,7 +89,8 @@ export default function Appointments() {
       });
       load();
     } catch (e) {
-      setError(e.response?.data || 'Failed to book appointment.');
+      const msg = e.response?.data?.message || e.response?.data?.toString() || 'Failed to book appointment.';
+      setError(msg);
     }
   }
 
@@ -133,7 +139,7 @@ export default function Appointments() {
             </div>
             <div className="form-group">
               <label>Time</label>
-              <input className="form-control" type="time" value={form.time} onChange={e => setForm({ ...form, time: e.target.value })} required />
+              <input className="form-control" type="time" min="10:00" max="16:30" value={form.time} onChange={e => setForm({ ...form, time: e.target.value })} required />
             </div>
             <button className="btn-primary">Book Appointment</button>
           </form>

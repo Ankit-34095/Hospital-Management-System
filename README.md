@@ -1,66 +1,124 @@
 # Hospital Management System
 
-A full-stack web application designed to manage core hospital operations such as patient records, doctor management, appointment scheduling, billing, and revenue tracking.
+A full-stack web application designed to streamline hospital operations by managing patients, doctors, appointments, billing, and revenue analytics through a secure role-based system.
 
--->Tech Stack
+## Live Demo
 
-| Layer | Technology |
-|-------|------------|
-| Frontend | React, Recharts, Lucide Icons |
-| Backend | Spring Boot, Spring Security |
-| Database | PostgreSQL |
-| Authentication | JWT Authentication |
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://hospital-management-system-pi-mauve.vercel.app/login)
 
 ---
 
---> Features
+## Features
 
-- Role-based access control for Admin, Doctor, and Patient
-- Secure JWT-protected authentication and authorization
-- Patient self-registration with automatic patient profile creation
-- Doctor management and credential creation by admin
-- Appointment booking with doctor/date/time selection
-- Validation to prevent booking appointments in the past
-- Billing management with bill generation and payment status update
-- Monthly revenue analytics dashboard for admin
-- Separate dashboards for Admin, Doctor, and Patient
-- Data isolation to ensure users can access only their own records
+### Patient Management
+
+* Patient self-registration
+* Automatic patient profile creation
+* Patient record management
+* Secure access to personal medical information
+
+### Doctor Management
+
+* Doctor management by administrators
+* Doctor credential creation
+* Doctor-specific dashboard
+* Appointment schedule management
+
+### Appointment Management
+
+* Book appointments with doctors
+* Doctor, date, and time slot selection
+* Prevention of appointments in the past
+* Conflict detection to prevent overlapping appointments for doctors and patients
+* 30-minute appointment slot scheduling
+
+### Billing & Revenue
+
+* Generate bills for completed appointments
+* Track payment status
+* Patient billing history
+* Monthly revenue analytics dashboard
+
+### Authentication & Security
+
+* JWT-based Authentication
+* Role-based Access Control (Admin, Doctor, Patient)
+* Protected APIs and secure authorization
+* Data isolation between users
+
+### User Experience
+
+* Separate dashboards for Admin, Doctor, and Patient
+* Responsive user interface
+* Interactive charts and analytics
+* Easy appointment and billing management
 
 ---
 
---> Default Admin Login
+## Tech Stack
+
+| Layer          | Technology                    |
+| -------------- | ----------------------------- |
+| Frontend       | React, Recharts, Lucide Icons |
+| Backend        | Spring Boot, Spring Security  |
+| Database       | PostgreSQL                    |
+| Authentication | JWT Authentication            |
+| Build Tool     | Maven                         |
+
+---
+
+## Project Structure
 
 ```text
-Username: admin
-Password: adminpass
+├── hospital-frontend/      # React frontend
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   └── resources/
+│   └── test/
+├── pom.xml
+├── mvnw
+├── mvnw.cmd
+└── README.md
 ```
 
 ---
 
---> Database Setup
+## Getting Started
 
-Create a PostgreSQL database named:
+### Prerequisites
 
-```sql
+* Java 17 JDK
+* Maven
+* PostgreSQL
+* Node.js and npm
+
+### Installation
+
+```bash
+git clone https://github.com/YOUR_USERNAME/Hospital-Management-System.git
+cd Hospital-Management-System
+```
+
+### Database Setup
+
+Create a PostgreSQL database:
+
+```text
 hospital_db
 ```
 
 Update database credentials in:
 
-```properties
+```text
 src/main/resources/application.properties
 ```
 
-Example configuration:
+---
 
-```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/hospital_db
-spring.datasource.username=your_username
-spring.datasource.password=your_password
-```
---->Running Locally
+## Running Locally
 
---->Backend Setup
+### Backend
 
 ```bash
 mvn spring-boot:run
@@ -72,7 +130,7 @@ Backend runs on:
 http://localhost:8081
 ```
 
--->Frontend Setup
+### Frontend
 
 ```bash
 cd hospital-frontend
@@ -82,73 +140,32 @@ npm start
 
 Frontend runs on:
 
+```text
 http://localhost:3000
-
--->Backend Dependencies
-
-- Spring Web
-- Spring Data JPA
-- Spring Security
-- PostgreSQL Driver
-- JWT
-- Lombok
+```
 
 ---
 
---->API Endpoints
+## Default Admin Account
 
--->Authentication
-
-| Method | Endpoint | Access | Description |
-|--------|----------|--------|-------------|
-| POST | `/api/auth/register` | Public | Register patient |
-| POST | `/api/auth/login` | Public | User login |
-| POST | `/api/auth/register-doctor` | ADMIN | Create doctor login |
+```text
+Username: admin
+Password: adminpass
+```
 
 ---
 
--->Patients
+## Deployment
 
-| Method | Endpoint | Access | Description |
-|--------|----------|--------|-------------|
-| GET | `/api/patients` | ADMIN | Get all patients |
-| POST | `/api/patients` | ADMIN | Add patient |
-| DELETE | `/api/patients/{id}` | ADMIN | Delete patient |
-| GET | `/api/patients/by-name/{name}` | AUTHENTICATED | Get patient by name |
+### Backend
 
----
+* Spring Boot deployment
+* PostgreSQL database integration
+* JWT-based authentication and authorization
 
--->Doctors
+### Frontend
 
-| Method | Endpoint | Access | Description |
-|--------|----------|--------|-------------|
-| GET | `/api/doctors` | AUTHENTICATED | Get all doctors |
-| POST | `/api/doctors` | ADMIN | Add doctor |
-| DELETE | `/api/doctors/{id}` | ADMIN | Delete doctor |
-| GET | `/api/doctors/by-name/{name}` | AUTHENTICATED | Get doctor by name |
-
----
-
--->Appointments
-
-| Method | Endpoint | Access | Description |
-|--------|----------|--------|-------------|
-| GET | `/api/appointments` | ADMIN | Get all appointments |
-| POST | `/api/appointments` | AUTHENTICATED | Book appointment |
-| GET | `/api/appointments/by-patient/{id}` | PATIENT | Get patient appointments |
-| GET | `/api/appointments/by-doctor/{id}` | DOCTOR | Get doctor appointments |
-
----
-
--->Billing
-
-| Method | Endpoint | Access | Description |
-|--------|----------|--------|-------------|
-| GET | `/api/billing` | ADMIN | Get all bills |
-| POST | `/api/billing/{appointmentId}` | AUTHENTICATED | Generate bill |
-| GET | `/api/billing/by-patient/{id}` | PATIENT | Get patient bills |
-| POST | `/api/billing/pay/{id}` | PATIENT | Mark bill as paid |
-
----
+* React deployment
+* Connected to the deployed backend API
 
 
